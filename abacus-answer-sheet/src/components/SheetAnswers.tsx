@@ -31,7 +31,7 @@ const MathWorksheetSolver = () => {
     formData.append('file', file);
 
     try {
-      const res = await fetch('http://localhost:8000/check-answers', {
+      const res = await fetch('https://abacus-sheet-solver.onrender.com/check-answers', {
         method: 'POST',
         body: formData,
       });
@@ -75,12 +75,12 @@ const MathWorksheetSolver = () => {
                 className="w-12 h-12"
               />
               <div>
-                <h2 className="text-2xl font-bold text-gray-800">PROACTIVE ABACUS</h2>
+                <h2 className="text-2xl font-bold text-gray-800">Trisha ABACUS</h2>
                 <p className="text-sm text-gray-600">Counting Made Magical</p>
               </div>
             </div>
             <div className="text-right">
-              <h3 className="text-xl font-bold text-gray-800">DEFG Category</h3>
+              <h3 className="text-xl font-bold text-gray-800">ABC Category</h3>
               <p className="text-sm text-gray-600">Solved Worksheet</p>
             </div>
           </div>
