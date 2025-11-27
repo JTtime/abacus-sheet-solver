@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { Upload, Calculator, CheckCircle, XCircle } from 'lucide-react';
 
+type Problem = {
+  numbers: number[];
+  correct_answer: number;
+};
+
+type ProblemCardProps = {
+  problem: Problem;
+  problemNumber: number;
+};
+
+
 const MathWorksheetSolver = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -44,7 +55,7 @@ const MathWorksheetSolver = () => {
       const data = await res.json();
       setResponse(data);
     } catch (err) {
-      setError(err.message);
+      setError(err?.message);
     } finally {
       setLoading(false);
     }
@@ -98,7 +109,7 @@ const MathWorksheetSolver = () => {
               </div>
               
               <div className="grid grid-cols-10 gap-3">
-                {row?.map((problem, colIndex) => (
+                {row?.map((problem: Problem, colIndex: number) => (
                   <ProblemCard 
                     key={colIndex} 
                     problem={problem}
@@ -210,7 +221,7 @@ const MathWorksheetSolver = () => {
   );
 };
 
-const ProblemCard = ({ problem, problemNumber }) => {
+const ProblemCard = ({ problem, problemNumber }: ProblemCardProps) => {
   return (
     <div className="bg-gradient-to-br from-white to-blue-50 rounded-lg shadow-md p-3 border-2 border-blue-200 hover:shadow-lg transition-all">
       <div className="text-xs text-gray-500 font-medium mb-2 text-center">
@@ -219,7 +230,7 @@ const ProblemCard = ({ problem, problemNumber }) => {
       
       {/* Numbers to add */}
       <div className="space-y-1 mb-3">
-        {problem?.numbers.map((num, idx) => (
+        {problem?.numbers.map((num: number, idx: number) => (
           <div 
             key={idx} 
             className="bg-white rounded px-2 py-1 text-center border border-gray-200"
