@@ -11,7 +11,7 @@ from io import BytesIO
 
 app = FastAPI(title="Abacus Competition Checker")
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Users\tjeevraj\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
+# pytesseract.pytesseract.tesseract_cmd = r"C:\Users\tjeevraj\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
 
 app.add_middleware(
     CORSMiddleware,
