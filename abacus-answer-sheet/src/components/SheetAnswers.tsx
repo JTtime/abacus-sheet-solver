@@ -1,4 +1,6 @@
-import React, { useState, ChangeEvent } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useState } from 'react';
+import type { ChangeEvent } from 'react';
 import { Upload, Calculator, CheckCircle, XCircle } from 'lucide-react';
 
 type Problem = {
